@@ -14,37 +14,45 @@
 
 <script lang="ts">
 	import Nav from '$lib/Nav.svelte';
+	import SpirulinaOrganism from '$lib/illustrations/SpirulinaOrganism.svelte';
 </script>
 
 <Nav />
 
 <!-- HERO -->
-<section class="relative flex min-h-screen flex-col items-center justify-center overflow-hidden bg-green-950 px-6 pt-24 text-center">
+<section class="relative flex min-h-screen flex-col items-center justify-center overflow-hidden bg-green-950 px-6 pt-24">
 	<div class="absolute inset-0 bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-green-800/30 via-green-950 to-green-950"></div>
-	<div class="relative z-10 max-w-4xl">
-		<div class="mb-6 inline-block rounded-full border border-green-600 bg-green-900 px-4 py-1.5 text-sm font-medium text-green-300">
-			Seed Investor Deck · 2026
+	<div class="relative z-10 mx-auto grid w-full max-w-6xl items-center gap-12 lg:grid-cols-2">
+		<!-- Text -->
+		<div class="text-center lg:text-left">
+			<div class="mb-6 inline-block rounded-full border border-green-600 bg-green-900 px-4 py-1.5 text-sm font-medium text-green-300">
+				Seed Investor Deck · 2026
+			</div>
+			<h1 class="mb-6 text-5xl font-extrabold leading-tight tracking-tight text-white sm:text-6xl lg:text-7xl">
+				Mauritius grows its own<br /><span class="text-green-400">fertilizer.</span>
+			</h1>
+			<p class="mx-auto mb-10 max-w-2xl text-lg text-green-100 sm:text-xl lg:mx-0">
+				GreenAlgae Mauritius cultivates <em>Spirulina</em> in open raceway ponds and sells biofertilizer
+				pellets and biopesticide to local farmers — cheaper than imported chemicals, even before the 60%
+				government subsidy.
+			</p>
+			<div class="flex flex-wrap justify-center gap-4 lg:justify-start">
+				<a href="#invest" class="rounded-full bg-green-500 px-8 py-3.5 text-base font-semibold text-white shadow-lg hover:bg-green-400 transition-colors">
+					See the $150K ask →
+				</a>
+				<a href="#problem" class="rounded-full border border-green-600 px-8 py-3.5 text-base font-semibold text-green-200 hover:border-green-400 hover:text-white transition-colors">
+					Read the case
+				</a>
+			</div>
 		</div>
-		<h1 class="mb-6 text-5xl font-extrabold leading-tight tracking-tight text-white sm:text-6xl lg:text-7xl">
-			Mauritius grows its own<br /><span class="text-green-400">fertilizer.</span>
-		</h1>
-		<p class="mx-auto mb-10 max-w-2xl text-lg text-green-100 sm:text-xl">
-			GreenAlgae Mauritius cultivates <em>Spirulina</em> in open raceway ponds and sells biofertilizer
-			pellets and biopesticide to local farmers — cheaper than imported chemicals, even before the 60%
-			government subsidy.
-		</p>
-		<div class="flex flex-wrap justify-center gap-4">
-			<a href="#invest" class="rounded-full bg-green-500 px-8 py-3.5 text-base font-semibold text-white shadow-lg hover:bg-green-400 transition-colors">
-				See the $150K ask →
-			</a>
-			<a href="#problem" class="rounded-full border border-green-600 px-8 py-3.5 text-base font-semibold text-green-200 hover:border-green-400 hover:text-white transition-colors">
-				Read the case
-			</a>
+		<!-- Illustration -->
+		<div class="flex justify-center lg:justify-end">
+			<SpirulinaOrganism class="w-48 opacity-90 drop-shadow-2xl sm:w-64 lg:w-80" />
 		</div>
 	</div>
 
 	<!-- STAT BAR -->
-	<div class="relative z-10 mt-20 grid w-full max-w-5xl grid-cols-2 gap-px overflow-hidden rounded-2xl border border-green-700 bg-green-700 sm:grid-cols-5">
+	<div class="relative z-10 mt-16 grid w-full max-w-5xl grid-cols-2 gap-px overflow-hidden rounded-2xl border border-green-700 bg-green-700 sm:grid-cols-5">
 		{#each [
 			{ value: '$47K', label: 'Year 1 Revenue' },
 			{ value: '$175K', label: 'Year 3 Revenue' },
@@ -70,26 +78,48 @@
 			12,000+ smallholder farmers are fully exposed to global supply shocks. In February 2026, the Hormuz closure alone pushed prices +35%.
 		</p>
 		<div class="grid gap-6 sm:grid-cols-3">
-			{#each [
-				{
-					title: 'No local production',
-					body: '$16M imports vs $156K exports annually. When global supply disrupts, prices rise immediately.'
-				},
-				{
-					title: 'Chemical runoff damages reefs',
-					body: 'Agrochemical runoff is a documented contributor to reef degradation — threatening tourism revenue long-term.'
-				},
-				{
-					title: "Smallholders can't afford inputs",
-					body: 'Food self-sufficiency ratio is only 25%. SFWF already subsidises 60% of input cost — demand for alternatives is built in.'
-				}
-			] as card}
-				<div class="rounded-2xl border border-green-700 bg-green-800/50 p-6">
-					<div class="mb-3 h-1.5 w-10 rounded-full bg-green-500"></div>
-					<h3 class="mb-2 text-base font-semibold text-white">{card.title}</h3>
-					<p class="text-sm leading-relaxed text-green-100">{card.body}</p>
-				</div>
-			{/each}
+			<!-- Card 1 -->
+			<div class="rounded-2xl border border-green-700 bg-green-800/50 p-6">
+				<svg class="mb-4 h-10 w-10" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+					<circle cx="20" cy="20" r="16" stroke="#4a9e50" stroke-width="2" />
+					<path d="M20 8 Q28 14 28 20 Q28 26 20 32 Q12 26 12 20 Q12 14 20 8Z" stroke="#4a9e50" stroke-width="1.5" fill="none" />
+					<line x1="8" y1="20" x2="32" y2="20" stroke="#4a9e50" stroke-width="1.5" />
+					<!-- Broken chain link on left -->
+					<line x1="4" y1="20" x2="8" y2="20" stroke="#6dbf74" stroke-width="2" stroke-linecap="round" />
+					<line x1="32" y1="20" x2="36" y2="20" stroke="#6dbf74" stroke-width="2" stroke-linecap="round" stroke-dasharray="2 2" />
+				</svg>
+				<h3 class="mb-2 text-base font-semibold text-white">No local production</h3>
+				<p class="text-sm leading-relaxed text-green-100">$16M imports vs $156K exports annually. When global supply disrupts, prices rise immediately.</p>
+			</div>
+			<!-- Card 2 -->
+			<div class="rounded-2xl border border-green-700 bg-green-800/50 p-6">
+				<svg class="mb-4 h-10 w-10" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+					<!-- Wave -->
+					<path d="M4 24 Q10 18 16 24 Q22 30 28 24 Q34 18 40 24" stroke="#4a9e50" stroke-width="2" stroke-linecap="round" fill="none" />
+					<path d="M4 30 Q10 24 16 30 Q22 36 28 30 Q34 24 40 30" stroke="#4a9e50" stroke-width="1.5" stroke-linecap="round" fill="none" opacity="0.5" />
+					<!-- Chemical droplets falling -->
+					<circle cx="14" cy="10" r="3" fill="#4a9e50" opacity="0.8" />
+					<path d="M14 13 L14 18" stroke="#4a9e50" stroke-width="1.5" stroke-linecap="round" stroke-dasharray="1 2" />
+					<circle cx="26" cy="7" r="2.5" fill="#4a9e50" opacity="0.6" />
+					<path d="M26 10 L26 16" stroke="#4a9e50" stroke-width="1.5" stroke-linecap="round" stroke-dasharray="1 2" />
+				</svg>
+				<h3 class="mb-2 text-base font-semibold text-white">Chemical runoff damages reefs</h3>
+				<p class="text-sm leading-relaxed text-green-100">Agrochemical runoff is a documented contributor to reef degradation — threatening tourism revenue long-term.</p>
+			</div>
+			<!-- Card 3 -->
+			<div class="rounded-2xl border border-green-700 bg-green-800/50 p-6">
+				<svg class="mb-4 h-10 w-10" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+					<!-- Person -->
+					<circle cx="20" cy="10" r="5" stroke="#4a9e50" stroke-width="2" />
+					<path d="M12 30 C12 22 28 22 28 30" stroke="#4a9e50" stroke-width="2" stroke-linecap="round" fill="none" />
+					<!-- Plant/crop (small, struggling) -->
+					<line x1="20" y1="30" x2="20" y2="38" stroke="#4a9e50" stroke-width="1.5" stroke-linecap="round" />
+					<path d="M20 34 Q24 30 26 32" stroke="#4a9e50" stroke-width="1.5" stroke-linecap="round" fill="none" />
+					<path d="M20 36 Q16 32 14 34" stroke="#4a9e50" stroke-width="1.5" stroke-linecap="round" fill="none" opacity="0.6" />
+				</svg>
+				<h3 class="mb-2 text-base font-semibold text-white">Smallholders can't afford inputs</h3>
+				<p class="text-sm leading-relaxed text-green-100">Food self-sufficiency ratio is only 25%. SFWF already subsidises 60% of input cost — demand for alternatives is built in.</p>
+			</div>
 		</div>
 	</div>
 </section>

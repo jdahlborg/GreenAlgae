@@ -14,22 +14,29 @@
 
 <script lang="ts">
 	import Nav from '$lib/Nav.svelte';
+	import SpirulinaOrganism from '$lib/illustrations/SpirulinaOrganism.svelte';
+	import RacewayPond from '$lib/illustrations/RacewayPond.svelte';
 </script>
 
 <Nav activePage="science" />
 
 <!-- HERO -->
-<section class="relative overflow-hidden bg-green-950 px-6 pb-24 pt-40 text-center">
+<section class="relative overflow-hidden bg-green-950 px-6 pb-24 pt-40">
 	<div class="absolute inset-0 bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-green-800/30 via-green-950 to-green-950"></div>
-	<div class="relative z-10 mx-auto max-w-3xl">
-		<div class="mb-4 text-sm font-semibold uppercase tracking-widest text-green-400">The Science</div>
-		<h1 class="mb-6 text-5xl font-extrabold leading-tight tracking-tight text-white">
-			Why <em class="not-italic text-green-400">Spirulina</em> works.
-		</h1>
-		<p class="text-lg text-green-100">
-			50+ years of commercial proof. A self-defending culture. Zero imported raw materials.
-			Here is the biology and engineering behind GreenAlgae Mauritius.
-		</p>
+	<div class="relative z-10 mx-auto grid max-w-5xl items-center gap-10 lg:grid-cols-2">
+		<div>
+			<div class="mb-4 text-sm font-semibold uppercase tracking-widest text-green-400">The Science</div>
+			<h1 class="mb-6 text-5xl font-extrabold leading-tight tracking-tight text-white">
+				Why <em class="not-italic text-green-400">Spirulina</em> works.
+			</h1>
+			<p class="text-lg text-green-100">
+				50+ years of commercial proof. A self-defending culture. Zero imported raw materials.
+				Here is the biology and engineering behind GreenAlgae Mauritius.
+			</p>
+		</div>
+		<div class="flex justify-center lg:justify-end">
+			<SpirulinaOrganism class="w-44 opacity-90 drop-shadow-2xl sm:w-56 lg:w-72" />
+		</div>
 	</div>
 </section>
 
@@ -134,6 +141,13 @@
 			and circulated by a paddlewheel. It is the industry-standard cultivation system for Spirulina,
 			in use commercially since the 1970s.
 		</p>
+
+		<!-- Pond diagram -->
+		<div class="mb-12 overflow-hidden rounded-2xl border border-green-700 bg-green-900/50 p-4 sm:p-8">
+			<RacewayPond />
+			<p class="mt-4 text-center text-xs text-green-400">Top-down view — open raceway pond, 500 m²</p>
+		</div>
+
 		<div class="grid gap-6 sm:grid-cols-2">
 			<div class="space-y-4">
 				{#each [

@@ -53,7 +53,7 @@
 	<div class="relative z-10 mt-16 grid w-full max-w-5xl grid-cols-2 gap-px overflow-hidden rounded-2xl border border-green-700 bg-green-700 sm:grid-cols-4">
 		{#each [
 			{ value: '60%', label: 'Gov. subsidy via SFWF' },
-			{ value: '$3–6/kg', label: 'Net cost after subsidy' },
+			{ value: 'Rs 140–275/kg', label: 'Net cost after subsidy' },
 			{ value: '20–40%', label: 'Yield improvement' },
 			{ value: '0', label: 'Imported raw materials' },
 		] as stat}
@@ -85,7 +85,7 @@
 					<line x1="32" y1="20" x2="36" y2="20" stroke="#6dbf74" stroke-width="2" stroke-linecap="round" stroke-dasharray="2 2" />
 				</svg>
 				<h3 class="mb-2 text-base font-semibold text-white">100% import dependency</h3>
-				<p class="text-sm leading-relaxed text-green-100">Mauritius imports $16M of fertilizer a year and exports just $156K. Every input you buy is exposed to global price shocks.</p>
+				<p class="text-sm leading-relaxed text-green-100">Mauritius imports Rs 740M of fertilizer a year and exports just Rs 7.2M. Every input you buy is exposed to global price shocks.</p>
 			</div>
 			<div class="rounded-2xl border border-green-700 bg-green-800/50 p-6">
 				<svg class="mb-4 h-10 w-10" viewBox="0 0 40 40" fill="none" aria-hidden="true">
@@ -127,7 +127,7 @@
 			<div class="rounded-2xl border border-green-600 bg-green-800/60 p-8">
 				<div class="mb-2 text-xs font-semibold uppercase tracking-widest text-green-400">Product 1</div>
 				<h3 class="mb-2 text-2xl font-bold text-white">Biofertilizer pellets</h3>
-				<div class="mb-4 text-green-400 font-semibold">$3–6/kg after SFWF subsidy</div>
+				<div class="mb-4 text-green-400 font-semibold">Rs 140–275/kg after SFWF subsidy</div>
 				<p class="mb-6 text-sm leading-relaxed text-green-100">
 					Slow-release pellets packed with nitrogen, phosphorus, and potassium from Spirulina biomass.
 					Improves soil structure and microbial activity over time. Documented 20–40% yield improvement in global field trials.
@@ -146,7 +146,7 @@
 			<div class="rounded-2xl border border-green-700 bg-green-800/50 p-8">
 				<div class="mb-2 text-xs font-semibold uppercase tracking-widest text-green-400">Product 2</div>
 				<h3 class="mb-2 text-2xl font-bold text-white">Liquid biopesticide</h3>
-				<div class="mb-4 text-green-400 font-semibold">$15–25/L · organic compatible</div>
+				<div class="mb-4 text-green-400 font-semibold">Rs 690–1,150/L · organic compatible</div>
 				<p class="mb-6 text-sm leading-relaxed text-green-100">
 					Spirulina extract with documented biopesticidal properties. Applied as a foliar spray or soil drench.
 					Compatible with organic certification and safe for reef-adjacent farming areas.
@@ -173,7 +173,7 @@
 		<h2 class="mb-6 text-4xl font-bold text-white">The government already pays 60% of your cost.</h2>
 		<p class="mb-12 max-w-3xl text-lg text-green-100">
 			The Small Farmers Welfare Fund (SFWF) subsidises 60% of the cost of approved bio-inputs for registered smallholders.
-			GreenAlgae Mauritius products are eligible under the current scheme. You pay $3–6/kg — less than you pay for chemical fertilizer today.
+			GreenAlgae Mauritius products are eligible under the current scheme. You pay Rs 140–275/kg — less than you pay for chemical fertilizer today.
 		</p>
 		<div class="grid gap-6 sm:grid-cols-3">
 			{#each [

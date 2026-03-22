@@ -48,7 +48,7 @@
 		<div class="mb-4 text-sm font-semibold uppercase tracking-widest text-green-400">The opportunity</div>
 		<h2 class="mb-6 text-4xl font-bold text-white">Mauritius imports 100× more fertilizer than it exports.</h2>
 		<p class="mb-10 max-w-3xl text-lg text-green-100">
-			$16M in annual fertilizer imports vs. $156K exported. Zero domestic raw material production. 12,000+ smallholder farmers fully exposed to global supply shocks.
+			Rs 740M in annual fertilizer imports vs. Rs 7.2M exported. Zero domestic raw material production. 12,000+ smallholder farmers fully exposed to global supply shocks.
 			The government already subsidises 60% of bio-input costs via SFWF — the demand channel exists.
 		</p>
 		<div class="grid gap-6 sm:grid-cols-3">

@@ -180,10 +180,10 @@
 			<table class="w-full text-sm">
 				<thead>
 					<tr class="border-b border-green-700 bg-green-900">
-						<th class="px-6 py-4 text-left font-semibold text-green-200"></th>
-						<th class="px-6 py-4 text-right font-semibold text-green-200">Year 1<br /><span class="text-xs font-normal text-green-400">Pilot · 1–2 ha</span></th>
-						<th class="px-6 py-4 text-right font-semibold text-green-200">Year 2<br /><span class="text-xs font-normal text-green-400">Growth · 5 ha</span></th>
-						<th class="px-6 py-4 text-right font-semibold text-green-200">Year 3<br /><span class="text-xs font-normal text-green-400">Scale · 10 ha</span></th>
+						<th scope="col" class="px-6 py-4 text-left font-semibold text-green-200">Revenue stream</th>
+						<th scope="col" class="px-6 py-4 text-right font-semibold text-green-200">Year 1<br /><span class="text-xs font-normal text-green-400">Pilot · 1–2 ha</span></th>
+						<th scope="col" class="px-6 py-4 text-right font-semibold text-green-200">Year 2<br /><span class="text-xs font-normal text-green-400">Growth · 5 ha</span></th>
+						<th scope="col" class="px-6 py-4 text-right font-semibold text-green-200">Year 3<br /><span class="text-xs font-normal text-green-400">Scale · 10 ha</span></th>
 					</tr>
 				</thead>
 				<tbody class="divide-y divide-green-800 text-green-100">
@@ -298,7 +298,10 @@
 								] as s}
 									<div>
 										<div class="text-green-500">{s.label}</div>
-										<div class="font-mono tracking-tight text-green-300">{'●'.repeat(s.score)}{'○'.repeat(5 - s.score)}</div>
+										<div
+											class="font-mono tracking-tight text-green-300"
+											aria-label="{s.label}: {s.score} out of 5"
+										>{'●'.repeat(s.score)}{'○'.repeat(5 - s.score)}</div>
 									</div>
 								{/each}
 							</div>

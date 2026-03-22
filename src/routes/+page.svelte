@@ -121,7 +121,7 @@
 				</p>
 				<ul class="space-y-2 text-sm text-green-200">
 					{#each $t('home.products.p1.bullets') as item}
-						<li class="flex gap-2"><span class="text-green-400 shrink-0">✓</span>{item}</li>
+						<li class="flex gap-2"><span class="text-green-400 shrink-0" aria-hidden="true">✓</span>{item}</li>
 					{/each}
 				</ul>
 			</div>
@@ -134,7 +134,7 @@
 				</p>
 				<ul class="space-y-2 text-sm text-green-200">
 					{#each $t('home.products.p2.bullets') as item}
-						<li class="flex gap-2"><span class="text-green-400 shrink-0">✓</span>{item}</li>
+						<li class="flex gap-2"><span class="text-green-400 shrink-0" aria-hidden="true">✓</span>{item}</li>
 					{/each}
 				</ul>
 			</div>

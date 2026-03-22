@@ -113,12 +113,15 @@
 							class="w-full rounded-xl border border-green-700 bg-green-900 px-4 py-3 text-white placeholder-green-600 focus:border-green-500 focus:outline-none focus:ring-1 focus:ring-green-500 transition-colors resize-none"
 						></textarea>
 					</div>
-					{#if status === 'error'}
-						<p class="text-sm text-red-400">{$t('contact.form.error')}</p>
-					{/if}
+					<div aria-live="polite" aria-atomic="true">
+						{#if status === 'error'}
+							<p class="text-sm text-red-400">{$t('contact.form.error')}</p>
+						{/if}
+					</div>
 					<button
 						type="submit"
 						disabled={status === 'sending'}
+						aria-busy={status === 'sending'}
 						class="w-full rounded-xl bg-green-500 py-3.5 text-base font-semibold text-white hover:bg-green-400 disabled:opacity-60 transition-colors"
 					>
 						{status === 'sending' ? $t('contact.form.sending') : $t('contact.form.submit')}

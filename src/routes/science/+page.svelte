@@ -95,7 +95,7 @@
 					label: 'Neutral water',
 					description: 'Most microorganisms thrive. Open ponds are highly vulnerable to contamination and culture crashes.',
 					color: 'border-red-800 bg-red-900/30',
-					textColor: 'text-red-400',
+					textColor: 'text-red-300',
 				},
 				{
 					number: 'pH 9–11',
@@ -109,7 +109,7 @@
 					label: 'Maximum alkalinity',
 					description: 'Caustic — nothing survives. Spirulina operates far below this, in a sweet spot hostile to competitors but optimal for itself.',
 					color: 'border-green-900 bg-green-900/30',
-					textColor: 'text-green-600',
+					textColor: 'text-green-400',
 				},
 			] as item}
 				<div class="rounded-2xl border {item.color} p-6">

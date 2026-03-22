@@ -13,14 +13,20 @@
 		{ href: '/contact', labelKey: 'nav.contact', page: 'contact' },
 	];
 
-	const langs: { code: Lang; label: string }[] = [
-		{ code: 'en', label: 'EN' },
-		{ code: 'fr', label: 'FR' },
-		{ code: 'cr', label: 'CR' },
+	const langs: { code: Lang; label: string; name: string }[] = [
+		{ code: 'en', label: 'EN', name: 'English' },
+		{ code: 'fr', label: 'FR', name: 'Français' },
+		{ code: 'cr', label: 'CR', name: 'Kreol Morisyen' },
 	];
+
+	function handleKeydown(e: KeyboardEvent) {
+		if (e.key === 'Escape' && open) open = false;
+	}
 </script>
 
-<nav class="fixed top-0 z-50 w-full border-b border-green-800 bg-green-950/95 backdrop-blur">
+<svelte:window onkeydown={handleKeydown} />
+
+<nav class="fixed top-0 z-50 w-full border-b border-green-800 bg-green-950/95 backdrop-blur" aria-label="Main navigation">
 	<div class="mx-auto flex max-w-6xl items-center justify-between px-6 py-4">
 		<a href="/" class="text-lg font-bold tracking-tight text-white hover:opacity-80 transition-opacity">
 			GreenAlgae<span class="text-green-400"> Mauritius</span>
@@ -44,6 +50,8 @@
 				{#each langs as l}
 					<button
 						onclick={() => lang.set(l.code)}
+						aria-label="Switch language to {l.name}"
+						aria-pressed={$lang === l.code}
 						class="rounded px-1.5 py-0.5 transition-colors {$lang === l.code ? 'bg-green-700 text-white' : 'text-green-500 hover:text-white'}"
 					>
 						{l.label}
@@ -91,6 +99,8 @@
 					{#each langs as l}
 						<button
 							onclick={() => { lang.set(l.code); open = false; }}
+							aria-label="Switch language to {l.name}"
+							aria-pressed={$lang === l.code}
 							class="rounded px-2 py-1 text-xs font-semibold transition-colors {$lang === l.code ? 'bg-green-700 text-white' : 'text-green-500 hover:text-white'}"
 						>
 							{l.label}

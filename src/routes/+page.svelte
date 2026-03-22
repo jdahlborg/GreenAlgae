@@ -21,6 +21,7 @@
 			<a href="#solution" class="hover:text-white transition-colors">Solution</a>
 			<a href="#financials" class="hover:text-white transition-colors">Financials</a>
 			<a href="#milestones" class="hover:text-white transition-colors">Milestones</a>
+			<a href="/science" class="hover:text-white transition-colors">The Science</a>
 			<a href="#invest" class="rounded-full bg-green-600 px-4 py-1.5 text-white hover:bg-green-500 transition-colors">Invest $150K</a>
 		</div>
 	</div>

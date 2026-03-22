@@ -12,20 +12,11 @@
 	/>
 </svelte:head>
 
-<!-- NAV -->
-<nav class="fixed top-0 z-50 w-full border-b border-green-800 bg-green-950/95 backdrop-blur">
-	<div class="mx-auto flex max-w-6xl items-center justify-between px-6 py-4">
-		<span class="text-lg font-bold tracking-tight text-white">GreenAlgae<span class="text-green-400"> Mauritius</span></span>
-		<div class="hidden items-center gap-8 text-sm font-medium text-green-200 sm:flex">
-			<a href="#problem" class="hover:text-white transition-colors">Problem</a>
-			<a href="#solution" class="hover:text-white transition-colors">Solution</a>
-			<a href="#financials" class="hover:text-white transition-colors">Financials</a>
-			<a href="#milestones" class="hover:text-white transition-colors">Milestones</a>
-			<a href="/science" class="hover:text-white transition-colors">The Science</a>
-			<a href="#invest" class="rounded-full bg-green-600 px-4 py-1.5 text-white hover:bg-green-500 transition-colors">Invest $150K</a>
-		</div>
-	</div>
-</nav>
+<script lang="ts">
+	import Nav from '$lib/Nav.svelte';
+</script>
+
+<Nav />
 
 <!-- HERO -->
 <section class="relative flex min-h-screen flex-col items-center justify-center overflow-hidden bg-green-950 px-6 pt-24 text-center">
@@ -111,6 +102,9 @@
 		<div class="mb-12 rounded-2xl border border-green-600 bg-green-800/60 p-6 text-green-100">
 			<span class="font-semibold text-green-400">Core focus:</span> Grow Spirulina in open raceway ponds on leased state land.
 			Sell biofertilizer pellets and liquid biopesticide to Mauritian smallholders. Everything else is future optionality — not core.
+			<a href="/science" class="ml-2 inline-flex items-center gap-1 text-sm font-medium text-green-400 underline underline-offset-2 hover:text-green-300 transition-colors">
+				Read the science →
+			</a>
 		</div>
 		<div class="grid gap-8 sm:grid-cols-2">
 			<div>

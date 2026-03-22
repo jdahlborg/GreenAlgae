@@ -12,6 +12,12 @@
 	/>
 </svelte:head>
 
+<script lang="ts">
+	import Nav from '$lib/Nav.svelte';
+</script>
+
+<Nav activePage="science" />
+
 <!-- HERO -->
 <section class="relative overflow-hidden bg-green-950 px-6 pb-24 pt-40 text-center">
 	<div class="absolute inset-0 bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-green-800/30 via-green-950 to-green-950"></div>

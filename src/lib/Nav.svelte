@@ -1,14 +1,22 @@
 <script lang="ts">
+	import { t, lang, type Lang } from '$lib/i18n';
+
 	let { activePage = '' }: { activePage?: string } = $props();
 
 	let open = $state(false);
 
 	const links = [
-		{ href: '/#products', label: 'Products' },
-		{ href: '/#sfwf', label: 'Subsidy' },
-		{ href: '/science', label: 'The Science', page: 'science' },
-		{ href: '/investors', label: 'Investors', page: 'investors' },
-		{ href: '/contact', label: 'Contact', page: 'contact' },
+		{ href: '/#products', labelKey: 'nav.products' },
+		{ href: '/#sfwf', labelKey: 'nav.subsidy' },
+		{ href: '/science', labelKey: 'nav.science', page: 'science' },
+		{ href: '/investors', labelKey: 'nav.investors', page: 'investors' },
+		{ href: '/contact', labelKey: 'nav.contact', page: 'contact' },
+	];
+
+	const langs: { code: Lang; label: string }[] = [
+		{ code: 'en', label: 'EN' },
+		{ code: 'fr', label: 'FR' },
+		{ code: 'cr', label: 'CR' },
 	];
 </script>
 
@@ -19,18 +27,29 @@
 		</a>
 
 		<!-- Desktop links -->
-		<div class="hidden items-center gap-8 text-sm font-medium text-green-200 sm:flex">
+		<div class="hidden items-center gap-6 text-sm font-medium text-green-200 sm:flex">
 			{#each links as link}
 				<a
 					href={link.href}
 					class="transition-colors {activePage === link.page ? 'text-white' : 'hover:text-white'}"
 				>
-					{link.label}
+					{$t(link.labelKey)}
 				</a>
 			{/each}
 			<a href="/#invest" class="rounded-full bg-green-600 px-4 py-1.5 text-white hover:bg-green-500 transition-colors">
-				Invest $150K
+				{$t('nav.invest')}
 			</a>
+			<!-- Language switcher -->
+			<div class="flex items-center gap-1 border-l border-green-700 pl-4 text-xs font-semibold">
+				{#each langs as l}
+					<button
+						onclick={() => lang.set(l.code)}
+						class="rounded px-1.5 py-0.5 transition-colors {$lang === l.code ? 'bg-green-700 text-white' : 'text-green-500 hover:text-white'}"
+					>
+						{l.label}
+					</button>
+				{/each}
+			</div>
 		</div>
 
 		<!-- Hamburger button -->
@@ -56,7 +75,7 @@
 						onclick={() => (open = false)}
 						class="rounded-lg px-3 py-2.5 text-sm font-medium transition-colors {activePage === link.page ? 'bg-green-800/60 text-white' : 'text-green-200 hover:bg-green-900 hover:text-white'}"
 					>
-						{link.label}
+						{$t(link.labelKey)}
 					</a>
 				{/each}
 				<a
@@ -64,8 +83,20 @@
 					onclick={() => (open = false)}
 					class="mt-3 rounded-full bg-green-600 px-4 py-2.5 text-center text-sm font-semibold text-white hover:bg-green-500 transition-colors"
 				>
-					Invest $150K
+					{$t('nav.invest')}
 				</a>
+				<!-- Language switcher mobile -->
+				<div class="mt-4 flex items-center gap-2 border-t border-green-800 pt-4">
+					<span class="text-xs text-green-500">Language:</span>
+					{#each langs as l}
+						<button
+							onclick={() => { lang.set(l.code); open = false; }}
+							class="rounded px-2 py-1 text-xs font-semibold transition-colors {$lang === l.code ? 'bg-green-700 text-white' : 'text-green-500 hover:text-white'}"
+						>
+							{l.label}
+						</button>
+					{/each}
+				</div>
 			</div>
 		</div>
 	{/if}

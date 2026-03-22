@@ -1,6 +1,6 @@
 <svelte:head>
-	<title>Contact — GreenAlgae Mauritius</title>
-	<meta name="description" content="Get in touch with GreenAlgae Mauritius about investment, partnerships, or farmer supply." />
+	<title>{$t('contact.meta_title')}</title>
+	<meta name="description" content={$t('contact.meta_desc')} />
 	<link rel="preconnect" href="https://fonts.googleapis.com" />
 	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="anonymous" />
 	<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
@@ -8,6 +8,7 @@
 
 <script lang="ts">
 	import Nav from '$lib/Nav.svelte';
+	import { t } from '$lib/i18n';
 
 	let name = $state('');
 	let email = $state('');
@@ -37,10 +38,10 @@
 <section class="relative overflow-hidden bg-green-950 px-6 pb-20 pt-40">
 	<div class="absolute inset-0 bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-green-800/30 via-green-950 to-green-950"></div>
 	<div class="relative z-10 mx-auto max-w-3xl">
-		<div class="mb-4 text-sm font-semibold uppercase tracking-widest text-green-400">Contact</div>
-		<h1 class="mb-4 text-5xl font-extrabold tracking-tight text-white">Get in touch.</h1>
+		<div class="mb-4 text-sm font-semibold uppercase tracking-widest text-green-400">{$t('contact.hero.eyebrow')}</div>
+		<h1 class="mb-4 text-5xl font-extrabold tracking-tight text-white">{$t('contact.hero.title')}</h1>
 		<p class="text-lg text-green-100">
-			Whether you are an investor, a farmer cooperative, a potential partner, or just curious — we want to hear from you.
+			{$t('contact.hero.desc')}
 		</p>
 	</div>
 </section>
@@ -54,30 +55,30 @@
 			{#if status === 'sent'}
 				<div class="rounded-2xl border border-green-600 bg-green-800/50 p-8 text-center">
 					<div class="mb-3 text-4xl">✓</div>
-					<h2 class="mb-2 text-xl font-bold text-white">Message sent.</h2>
-					<p class="text-green-200">We'll get back to you within 48 hours.</p>
+					<h2 class="mb-2 text-xl font-bold text-white">{$t('contact.sent.title')}</h2>
+					<p class="text-green-200">{$t('contact.sent.desc')}</p>
 					<button
 						onclick={() => { status = 'idle'; name = ''; email = ''; message = ''; }}
 						class="mt-6 text-sm text-green-400 underline underline-offset-2 hover:text-green-300 transition-colors"
 					>
-						Send another message
+						{$t('contact.sent.again')}
 					</button>
 				</div>
 			{:else}
 				<form onsubmit={handleSubmit} class="space-y-5">
 					<div>
-						<label for="name" class="mb-1.5 block text-sm font-medium text-green-300">Name</label>
+						<label for="name" class="mb-1.5 block text-sm font-medium text-green-300">{$t('contact.form.name')}</label>
 						<input
 							id="name"
 							type="text"
 							bind:value={name}
 							required
-							placeholder="Your name"
+							placeholder={$t('contact.form.name_placeholder')}
 							class="w-full rounded-xl border border-green-700 bg-green-900 px-4 py-3 text-white placeholder-green-600 focus:border-green-500 focus:outline-none focus:ring-1 focus:ring-green-500 transition-colors"
 						/>
 					</div>
 					<div>
-						<label for="email" class="mb-1.5 block text-sm font-medium text-green-300">Email</label>
+						<label for="email" class="mb-1.5 block text-sm font-medium text-green-300">{$t('contact.form.email')}</label>
 						<input
 							id="email"
 							type="email"
@@ -88,39 +89,39 @@
 						/>
 					</div>
 					<div>
-						<label for="subject" class="mb-1.5 block text-sm font-medium text-green-300">I am a...</label>
+						<label for="subject" class="mb-1.5 block text-sm font-medium text-green-300">{$t('contact.form.subject_label')}</label>
 						<select
 							id="subject"
 							bind:value={subject}
 							class="w-full rounded-xl border border-green-700 bg-green-900 px-4 py-3 text-white focus:border-green-500 focus:outline-none focus:ring-1 focus:ring-green-500 transition-colors"
 						>
-							<option value="investor">Potential investor</option>
-							<option value="farmer">Farmer / cooperative</option>
-							<option value="partner">Business partner</option>
-							<option value="press">Press / media</option>
-							<option value="other">Other</option>
+							<option value="investor">{$t('contact.form.opt_investor')}</option>
+							<option value="farmer">{$t('contact.form.opt_farmer')}</option>
+							<option value="partner">{$t('contact.form.opt_partner')}</option>
+							<option value="press">{$t('contact.form.opt_press')}</option>
+							<option value="other">{$t('contact.form.opt_other')}</option>
 						</select>
 					</div>
 					<div>
-						<label for="message" class="mb-1.5 block text-sm font-medium text-green-300">Message</label>
+						<label for="message" class="mb-1.5 block text-sm font-medium text-green-300">{$t('contact.form.message')}</label>
 						<textarea
 							id="message"
 							bind:value={message}
 							required
 							rows="5"
-							placeholder="Tell us what's on your mind..."
+							placeholder={$t('contact.form.message_placeholder')}
 							class="w-full rounded-xl border border-green-700 bg-green-900 px-4 py-3 text-white placeholder-green-600 focus:border-green-500 focus:outline-none focus:ring-1 focus:ring-green-500 transition-colors resize-none"
 						></textarea>
 					</div>
 					{#if status === 'error'}
-						<p class="text-sm text-red-400">Something went wrong — please try again or email us directly.</p>
+						<p class="text-sm text-red-400">{$t('contact.form.error')}</p>
 					{/if}
 					<button
 						type="submit"
 						disabled={status === 'sending'}
 						class="w-full rounded-xl bg-green-500 py-3.5 text-base font-semibold text-white hover:bg-green-400 disabled:opacity-60 transition-colors"
 					>
-						{status === 'sending' ? 'Sending...' : 'Send message'}
+						{status === 'sending' ? $t('contact.form.sending') : $t('contact.form.submit')}
 					</button>
 				</form>
 			{/if}
@@ -129,26 +130,9 @@
 		<!-- CONTACT INFO -->
 		<div class="space-y-8">
 			<div>
-				<h2 class="mb-6 text-2xl font-bold text-white">Who we want to hear from</h2>
+				<h2 class="mb-6 text-2xl font-bold text-white">{$t('contact.sidebar.title')}</h2>
 				<div class="space-y-4">
-					{#each [
-						{
-							type: 'Investors',
-							detail: 'We are raising $150K Stage 1. Minimum ticket size is flexible — reach out to discuss terms and milestone structure.'
-						},
-						{
-							type: 'Farmer cooperatives',
-							detail: 'Interested in trialling biofertilizer pellets at subsidised cost through the SFWF scheme? We are looking for 3–5 pilot farmers in Year 1.'
-						},
-						{
-							type: 'Poultry farms',
-							detail: 'We are looking for broiler farms willing to supply manure under a signed LOI. We collect — you dispose for free.'
-						},
-						{
-							type: 'Partners & institutions',
-							detail: 'FAREI, Landscope, MCFI, and agricultural research partners — we are actively seeking formal relationships.'
-						},
-					] as item}
+					{#each $t('contact.sidebar.items') as item}
 						<div class="rounded-xl border border-green-700 bg-green-800/50 p-4">
 							<div class="mb-1 font-semibold text-white">{item.type}</div>
 							<p class="text-sm text-green-200">{item.detail}</p>
@@ -158,11 +142,11 @@
 			</div>
 
 			<div class="rounded-xl border border-green-700 bg-green-800/50 p-6 space-y-3">
-				<h3 class="font-semibold text-white">Direct contact</h3>
+				<h3 class="font-semibold text-white">{$t('contact.sidebar.direct_title')}</h3>
 				<div class="text-sm text-green-200 space-y-1">
-					<div><span class="text-green-400">Email:</span> invest@greenalgae.mu</div>
-					<div><span class="text-green-400">Location:</span> Mauritius</div>
-					<div><span class="text-green-400">Response time:</span> Within 48 hours</div>
+					<div><span class="text-green-400">{$t('contact.sidebar.label_email')}</span> invest@greenalgae.mu</div>
+					<div><span class="text-green-400">{$t('contact.sidebar.label_location')}</span> Mauritius</div>
+					<div><span class="text-green-400">{$t('contact.sidebar.label_response')}</span> {$t('contact.sidebar.response_time')}</div>
 				</div>
 			</div>
 		</div>

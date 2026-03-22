@@ -4,11 +4,10 @@
 	let open = $state(false);
 
 	const links = [
-		{ href: '/#problem', label: 'Problem' },
-		{ href: '/#solution', label: 'Solution' },
-		{ href: '/#financials', label: 'Financials' },
-		{ href: '/#milestones', label: 'Milestones' },
+		{ href: '/#products', label: 'Products' },
+		{ href: '/#sfwf', label: 'Subsidy' },
 		{ href: '/science', label: 'The Science', page: 'science' },
+		{ href: '/investors', label: 'Investors', page: 'investors' },
 		{ href: '/contact', label: 'Contact', page: 'contact' },
 	];
 </script>

@@ -302,7 +302,7 @@
 				Investors in Stage 1 will have full visibility of milestone achievement before Stage 2 is initiated.
 			</p>
 			<a
-				href="mailto:invest@greenalgae.mu"
+				href="/contact"
 				class="inline-block rounded-full bg-green-500 px-8 py-3.5 text-base font-semibold text-white shadow-lg hover:bg-green-400 transition-colors"
 			>
 				Get in touch →

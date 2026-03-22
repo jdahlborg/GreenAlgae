@@ -12,11 +12,11 @@
 			<a href="/#solution" class="hover:text-white transition-colors">Solution</a>
 			<a href="/#financials" class="hover:text-white transition-colors">Financials</a>
 			<a href="/#milestones" class="hover:text-white transition-colors">Milestones</a>
-			<a
-				href="/science"
-				class="transition-colors {activePage === 'science' ? 'text-white' : 'hover:text-white'}"
-			>
+			<a href="/science" class="transition-colors {activePage === 'science' ? 'text-white' : 'hover:text-white'}">
 				The Science
+			</a>
+			<a href="/contact" class="transition-colors {activePage === 'contact' ? 'text-white' : 'hover:text-white'}">
+				Contact
 			</a>
 			<a href="/#invest" class="rounded-full bg-green-600 px-4 py-1.5 text-white hover:bg-green-500 transition-colors">
 				Invest $150K

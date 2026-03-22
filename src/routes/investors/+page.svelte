@@ -8,6 +8,108 @@
 
 <script lang="ts">
 	import Nav from '$lib/Nav.svelte';
+
+	const portfolioPhases = [
+		{
+			label: 'Phase 1 — Launch now',
+			dotClass: 'bg-green-500',
+			labelClass: 'text-green-400',
+			cardBorder: 'border-green-700',
+			badgeClass: 'bg-green-800 text-green-300',
+			products: [
+				{
+					id: 'A', name: 'Spirulina Biofertilizer Pellets', category: 'Agriculture',
+					price: '$8–15/kg retail · Rs 140–275/kg after SFWF subsidy',
+					margin: '40–60%', capex: 'None — base equipment budgeted',
+					scores: { profitability: 3, complexity: 2, readiness: 5, scalability: 5 },
+					strategic: 'Core product — the reason to build the ponds. All other products are add-ons.',
+					risk: 'Farmer adoption takes time. SFWF product registration needed before first sale.',
+				},
+				{
+					id: 'B', name: 'Liquid Biopesticide Extract', category: 'Agriculture',
+					price: '$15–25/L (1L dilutes to treat ~0.1 ha)',
+					margin: '70–80%', capex: '$2,000–5,000 — mixing tank, HDPE bottles, labelling',
+					scores: { profitability: 4, complexity: 1, readiness: 5, scalability: 4 },
+					strategic: 'Highest margin product. Lowest complexity. Same biomass input as pellets — cold-water extraction before pelleting.',
+					risk: 'Shelf life 3–6 months. Cold chain preferred for distribution.',
+				},
+				{
+					id: 'E', name: 'Chicken Manure Pellets', category: 'Agriculture',
+					price: '$8–12/kg wholesale · Rs 15–25/kg retail',
+					margin: '60–80%', capex: '$2,000–5,000 — covered composting area, manure handling',
+					scores: { profitability: 4, complexity: 1, readiness: 5, scalability: 5 },
+					strategic: 'Easiest product to launch. Same pellet press as Spirulina. Can generate revenue before ponds are fully operational. Farmers already understand it.',
+					risk: 'Antibiotic residues from broiler farms — test each batch. Odour management required near residential areas.',
+				},
+			],
+		},
+		{
+			label: 'Phase 2 — Year 2–3 (plan now)',
+			dotClass: 'bg-yellow-500',
+			labelClass: 'text-yellow-400',
+			cardBorder: 'border-yellow-800',
+			badgeClass: 'bg-yellow-900 text-yellow-300',
+			products: [
+				{
+					id: 'C', name: 'Phycocyanin (C-PC) — Food-Grade Blue Pigment', category: 'Food Ingredient / Nutraceutical',
+					price: '$500–2,000/kg food-grade',
+					margin: '2–8× at food-grade pricing', capex: '$20,000–50,000 — centrifuge, cold mixing tank, spray dryer, spectrophotometer',
+					scores: { profitability: 5, complexity: 3, readiness: 3, scalability: 4 },
+					strategic: 'FDA synthetic blue dye ban (end-2026) creates urgent EU/US buyer demand. Same biomass — no new ponds. 50–200× more value per kg than biofertilizer.',
+					risk: 'Heavy metal testing mandatory if using fish/manure nutrient inputs. Buyer requires Certificate of Analysis. Inconsistent batches lose customers.',
+				},
+				{
+					id: 'D', name: 'Spirulina Supplement Powder', category: 'Nutraceutical / Food',
+					price: '$15–100/kg depending on grade and certification',
+					margin: '30–85%', capex: 'None — same equipment as phycocyanin line',
+					scores: { profitability: 3, complexity: 2, readiness: 3, scalability: 5 },
+					strategic: 'Residue after phycocyanin extraction — still 55–65% protein. Zero extra cultivation cost. "Grown in Mauritius" story supports premium positioning.',
+					risk: 'Market crowded with low-cost Chinese Spirulina. Certification and branding required to command premium.',
+				},
+				{
+					id: 'F', name: 'Fish Hydrolysate Liquid Fertilizer', category: 'Agriculture / Biostimulant',
+					price: '$15–40/L retail · $8–15/L wholesale',
+					margin: '60–80%', capex: '$15,000–30,000 — grinder, heated hydrolysis tank, filter press, bottling',
+					scores: { profitability: 4, complexity: 3, readiness: 3, scalability: 3 },
+					strategic: 'PTM tuna processing waste → premium biostimulant. Waste is free or PTM pays disposal fee. Rich in amino acids and peptides beyond NPK alone.',
+					risk: 'PTM biogas agreement may limit waste availability. Mercury testing required per batch for food-grade use.',
+				},
+			],
+		},
+		{
+			label: 'Phase 3 — Year 4+ (defer)',
+			dotClass: 'bg-red-600',
+			labelClass: 'text-red-400',
+			cardBorder: 'border-red-900',
+			badgeClass: 'bg-red-950 text-red-400',
+			products: [
+				{
+					id: 'G', name: 'Carbon Credits', category: 'Environmental / Financial',
+					price: '$12–18/tonne CO₂ (voluntary market)',
+					margin: 'Passive income once certified', capex: '$25,000 one-time certification + $5,000–10,000/yr verification',
+					scores: { profitability: 3, complexity: 4, readiness: 2, scalability: 4 },
+					strategic: 'Treat as bonus revenue, not core business. Certification takes 12–24 months — begin process at Stage 2. Do not raise capital on the basis of carbon revenue.',
+					risk: 'Verra methodology for microalgae still evolving. Carbon price volatility. Long lead time.',
+				},
+				{
+					id: 'H', name: 'Sea Cucumber (Béche-de-mer)', category: 'IMTA Aquaculture',
+					price: '$40–200/kg dried (10:1 fresh-to-dry ratio)',
+					margin: '80–95%', capex: '$5,000–15,000 — lagoonal net pen infrastructure',
+					scores: { profitability: 5, complexity: 3, readiness: 2, scalability: 3 },
+					strategic: 'Near-zero feed cost — fed on algae pond effluent and natural biofilm. Native H. scabra species. Export to China/HK/Singapore. Requires 10+ ha stable first.',
+					risk: 'Lagoonal permit separate from land permit. 18–24 months to harvest size. Cyclone risk to sea-pens.',
+				},
+				{
+					id: 'I', name: 'Whiteleg Shrimp (Fresh / Frozen)', category: 'IMTA Aquaculture',
+					price: '$12–18/kg local premium · $8–12/kg export',
+					margin: '50–70%', capex: '$10,000–20,000 — IMTA pond adaptation, aeration upgrade, harvest net',
+					scores: { profitability: 4, complexity: 4, readiness: 2, scalability: 4 },
+					strategic: 'Algae bloom covers ~25% of shrimp feed. Shrimp effluent returns as nutrient input, closing the loop. Sell to Mauritius hotels and Réunion export. Year 4+ only.',
+					risk: 'Disease risk (EMS, EHP) is primary global shrimp risk. SPF broodstock essential. Aquaculture permit required for non-native L. vannamei.',
+				},
+			],
+		},
+	];
 </script>
 
 <Nav activePage="investors" />
@@ -142,6 +244,76 @@
 				{/each}
 			</div>
 		</div>
+	</div>
+</section>
+
+<!-- PRODUCT PORTFOLIO -->
+<section class="border-t border-green-800 bg-green-950 px-6 py-20">
+	<div class="mx-auto max-w-5xl">
+		<div class="mb-4 text-sm font-semibold uppercase tracking-widest text-green-400">Product portfolio</div>
+		<h2 class="mb-2 text-4xl font-bold text-white">Nine products. Three launch phases.</h2>
+		<p class="mb-4 max-w-3xl text-lg text-green-100">
+			The baseline projections above cover biofertilizer and biopesticide only. Every product below is producible from the same ponds and infrastructure — scored on profitability, production complexity, launch readiness, and scalability.
+		</p>
+		<p class="mb-10 text-sm text-green-400">Scores: ●●●●● = strong · ○ = weak. Complexity: more dots = more complex.</p>
+
+		{#each portfolioPhases as phase}
+			<div class="mb-12">
+				<div class="mb-4 flex items-center gap-3">
+					<span class="h-2.5 w-2.5 rounded-full {phase.dotClass}"></span>
+					<h3 class="text-sm font-bold uppercase tracking-widest {phase.labelClass}">{phase.label}</h3>
+				</div>
+				<div class="grid gap-4 sm:grid-cols-3">
+					{#each phase.products as p}
+						<div class="rounded-2xl border {phase.cardBorder} bg-green-900/40 p-5 flex flex-col gap-3">
+							<div>
+								<div class="mb-1 flex items-center gap-2">
+									<span class="rounded px-1.5 py-0.5 text-xs font-bold {phase.badgeClass}">{p.id}</span>
+									<span class="text-xs text-green-400">{p.category}</span>
+								</div>
+								<h4 class="font-bold text-white leading-snug">{p.name}</h4>
+							</div>
+
+							<div class="space-y-1 rounded-xl border border-green-800 bg-green-950/60 px-3 py-2.5 text-xs">
+								<div class="flex justify-between gap-2">
+									<span class="shrink-0 text-green-500">Price</span>
+									<span class="text-right text-green-100">{p.price}</span>
+								</div>
+								<div class="flex justify-between gap-2">
+									<span class="shrink-0 text-green-500">Margin</span>
+									<span class="text-right text-green-100">{p.margin}</span>
+								</div>
+								<div class="flex justify-between gap-2">
+									<span class="shrink-0 text-green-500">Add'l capex</span>
+									<span class="text-right text-green-100">{p.capex}</span>
+								</div>
+							</div>
+
+							<div class="grid grid-cols-2 gap-x-3 gap-y-1 text-xs">
+								{#each [
+									{ label: 'Profitability', score: p.scores.profitability },
+									{ label: 'Complexity', score: p.scores.complexity },
+									{ label: 'Readiness', score: p.scores.readiness },
+									{ label: 'Scalability', score: p.scores.scalability },
+								] as s}
+									<div>
+										<div class="text-green-500">{s.label}</div>
+										<div class="font-mono tracking-tight text-green-300">{'●'.repeat(s.score)}{'○'.repeat(5 - s.score)}</div>
+									</div>
+								{/each}
+							</div>
+
+							<div class="text-xs leading-relaxed text-green-200">
+								<span class="font-semibold text-green-400">Strategy: </span>{p.strategic}
+							</div>
+							<div class="text-xs leading-relaxed text-red-300/80">
+								<span class="font-semibold text-red-400">Risk: </span>{p.risk}
+							</div>
+						</div>
+					{/each}
+				</div>
+			</div>
+		{/each}
 	</div>
 </section>
 

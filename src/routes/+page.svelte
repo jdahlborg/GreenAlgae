@@ -19,6 +19,11 @@
 
 <!-- HERO -->
 <section class="relative flex min-h-screen flex-col items-center justify-center overflow-hidden bg-green-950 px-6 pt-24">
+	<img
+		src="https://images.unsplash.com/photo-1573843981267-be1480cc8ef3?w=1920&q=85&fit=crop"
+		alt="Mauritius tropical beach"
+		class="absolute inset-0 h-full w-full object-cover opacity-20"
+	/>
 	<div class="absolute inset-0 bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-green-800/30 via-green-950 to-green-950"></div>
 	<div class="relative z-10 mx-auto grid w-full max-w-6xl items-center gap-12 lg:grid-cols-2">
 		<div class="text-center lg:text-left">
